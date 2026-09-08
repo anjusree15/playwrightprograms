@@ -12,6 +12,7 @@ class stud{
     }
     display(){
         console.log('welcome all')
+        console.log ('hi')
     }
 }
 //new stud().introduce()
