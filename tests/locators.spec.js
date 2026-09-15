@@ -13,6 +13,8 @@ const submitmsg=page.locator(".my-2")//submitmsg is locator-variable to store th
 await expect(submitmsg).not.toBeVisible()//assertion to verify the locator is not visible
 await page.getByRole("button",{name:"Submit form"}).click()//getByRole method-checkbox, radio button, link etc
 
+
+//assertions-are used to verify that your application behaves as expected during tests.
 const msg=await submitmsg.textContent()//textContent method to get the text value of the locator
 console.log(msg)
 await expect(submitmsg).toBeVisible()//assertion to verify the locator is visible
@@ -23,5 +25,6 @@ await page.waitForTimeout(3000)//wait for 3 sec
 //uniquely find the specific web elements-locators
 // css locator
 // goto https://selenium.qabible.in/simple-form-demo.php-task
-//assertions-are used to verify that your application behaves as expected during tests.
+
+
 
