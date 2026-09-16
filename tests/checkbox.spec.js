@@ -13,7 +13,4 @@ const msg1=await successmsg.textContent()//to fetch the text inside the locator
 console.log(msg1)
 //task
 
-
-await page.waitForTimeout(3000)
-
  })
