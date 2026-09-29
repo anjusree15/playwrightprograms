@@ -1,14 +1,13 @@
 import {test,expect} from "@playwright/test"
- test("demoproject", async({page}) =>{
-await page.goto("https://www.saucedemo.com/")
-const username=page.getByPlaceholder("Username")
-await username.fill("standard_user")
-const password=page.getByPlaceholder("Password")
-await password.fill("secret_sauce")
-const login=page.getByRole("button",{name:"login"})
-await login.click()
-await page.waitForLoadState('networkidle')//in case of network issue-use this method
-const prodName=page.locator(".inventory_item_name")
+import { LoginPage } from "../pages/LoginPage"
+test("demoproject", async({page}) =>{
+
+const lp=new LoginPage(page)//constructor
+await lp.navigatePage()
+await lp.loginUser()
+
+//in case of network issue-use this method
+const prodName=page.locator(".inventory_item_name")// prod page
 const prodCount=await prodName.count()
 console.log(prodCount)
 const prodList=await prodName.allTextContents()//to fetch multiple elements
@@ -32,7 +31,7 @@ await expect(cartProd).toHaveText(myProduct)
 const checkOutBtn=page.locator("#checkout")
 await checkOutBtn.click()
 
-const checkFirstname=page.locator("#first-name")
+const checkFirstname=page.locator("#first-name")//checkout page
 await checkFirstname.fill("anju")
 
 const checkLastName=page.locator("#last-name")
