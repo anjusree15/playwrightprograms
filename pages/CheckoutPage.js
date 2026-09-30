@@ -1,44 +1,40 @@
-/*export class CheckoutPage{
+import { expect} from "@playwright/test"
+export class CheckoutPage{
     constructor(page){
         this.page=page
-        
-
-     
-this.checkFirstname=page.locator("#first-name")//checkout page
-await this.checkFirstname.fill("anju")
-
-this.checkLastName=page.locator("#last-name")
-await this.checkLastName.fill("sree")
-
-this.checkZip=page.locator("#postal-code")
-await this.checkZip.fill("0123")
-
-this.continueBtn=page.locator("#continue")
-await this.continueBtn.click()
-
-await expect(this.page.getByText("Thank you for your order!")).toBeVisible()
+        this.checkFirstname=page.locator("#first-name")//checkout 
+        this.checkLastName=page.locator("#last-name")
+        this.checkZip=page.locator("#postal-code")
+        this.continueBtn=page.locator("#continue")
+        this.finishBtn=page.locator("#finish")
+        this.OrderConfirm=page.getByText("Thank you for your order!")
     }
-    async VerifyProdinCart(myProduct){
- await expect(this.cartProd).toHaveText(myProduct)
-    }
-    async clickCheckout()
-    {
-    await this.checkOutBtn.click()
-    }
-    async clickContinue(){
-    await this.continueBtn.click()
-    }
-    async finish(){
-        await expect(this.page).toHaveURL("https://www.saucedemo.com/checkout-step-two.html")
-        await this.finish.click()
+   async enterCheckoutDetails(checkFirstname,checkLastName,checkZip)
+   {
+    await this.checkFirstname.fill("checkFirstname")
+    await this.checkLastName.fill("checkLastName")
+    await this.checkZip.fill("checkZip")
     }
     
-        async verify(){
+    async clickContinue()
+    {
+    await this.continueBtn.click()
+    }
+    async finish()
+    {
+        await expect(this.page).toHaveURL("https://www.saucedemo.com/checkout-step-two.html")
+    await this.finishBtn.click() 
+    }
+    async verify()
+        {
         await expect(this.page).toHaveURL("https://www.saucedemo.com/checkout-complete.html")
-        await expect(this.page.getByText("Thank you for your order!")).toBeVisible()
+        await expect(this.OrderConfirm).toBeVisible()
+        }
+       
+    }
+        
 
-}  
-}*/
+
 
 
         

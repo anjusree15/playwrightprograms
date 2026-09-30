@@ -8,7 +8,7 @@ export class CartPage{
 
     }
     async validateprod(myProduct){
-        await expect(this.cartProd).toHaveText(myProduct)
+        await expect(this.cartProd).toHaveText([myProduct])
         await this.checkOutBtn.click()
     }
 }

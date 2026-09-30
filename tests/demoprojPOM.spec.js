@@ -12,22 +12,21 @@ await lp.loginUser()
 //prod page
 const pp=new ProductPage(page)
 const myProduct="Sauce Labs Backpack"
+//cart
 await pp.addProdToCart(myProduct)
 await pp.gotoCart()
 const cr=new CartPage(page)
 await cr.validateprod(myProduct)
-//cart
-/*const cp=new CheckoutPage(page)
-await cp.VerifyProdinCart(myProduct)
-await cp.clickCheckout()
 //checkout
+const cp=new CheckoutPage(page)
+await cp.enterCheckoutDetails("anju","sree","0123")
 await cp.clickContinue()
 await cp.finish()
 await cp.verify()
-*/
+
 //await page.locator("#item_4_title_link").click()
-const shopLink=page.locator(".shopping_cart_link")
-await shopLink.click()
+//const shopLink=page.locator(".shopping_cart_link")
+//await shopLink.click()
 
 await page.waitForTimeout(3000)
 
