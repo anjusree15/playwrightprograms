@@ -1,24 +1,28 @@
 import {test,expect} from "@playwright/test"
-import { LoginPage } from "../pages/LoginPage"
-import { ProductPage } from "../pages/ProductPage"
-import { CheckoutPage} from "../pages/CheckoutPage"
-import { CartPage} from "../pages/CartPage"
+import { objectManager } from "../pages/objectManager"
 
 test("demoproject", async({page}) =>{
 //login page
-const lp=new LoginPage(page)//constructor
+//constructor
+const pom=new objectManager(page)
+const lp=await pom.getLoginPage()
+const pp=await pom.getProductPage()
+const cr=await pom.getCartPage()
+const cp=await pom.getCheckoutPage()
+
 await lp.navigatePage()
-await lp.loginUser()
+const uname="standard_user"
+const pwd="secret_sauce"
+await lp.loginUser(uname,pwd)//method
 //prod page
-const pp=new ProductPage(page)
+
 const myProduct="Sauce Labs Backpack"
 //cart
 await pp.addProdToCart(myProduct)
 await pp.gotoCart()
-const cr=new CartPage(page)
 await cr.validateprod(myProduct)
 //checkout
-const cp=new CheckoutPage(page)
+
 await cp.enterCheckoutDetails("anju","sree","0123")
 await cp.clickContinue()
 await cp.finish()

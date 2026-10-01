@@ -8,10 +8,10 @@ export class LoginPage {
      async navigatePage(){
     await this.page.goto("https://www.saucedemo.com/")
    }
-async loginUser(){
+async loginUser(uname,pwd){
   
-await this.username.fill("standard_user")
-await this.password.fill("secret_sauce")
+await this.username.fill(uname)
+await this.password.fill(pwd)
 await this.login.click()
 await this.page.waitForLoadState('networkidle')
    }
