@@ -1,0 +1,24 @@
+[{
+"uname":"standard_user",
+"pwd":"secret_sauce",
+"myProduct":"Sauce Labs Backpack",
+"fname":"anju",
+"lname":"sree",
+"zip":"500081"
+},
+{
+"uname":"standard_user",
+"pwd":"secret_sauce",
+"myProduct":"Sauce Labs Fleece Jacket",
+"fname":"anu",
+"lname":"anil",
+"zip":"123456"
+},
+{
+"uname":"standard_user",
+"pwd":"secret_sauce",
+"myProduct":"Sauce Labs Bolt T-Shirt",
+"fname":"adil",
+"lname":"ameen",
+"zip":"63254"
+}]

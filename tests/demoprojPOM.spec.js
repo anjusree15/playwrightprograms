@@ -1,8 +1,11 @@
 import {test,expect} from "@playwright/test"
 import { objectManager } from "../pages/objectManager"
+import data from "../Utiles/data.json"
+//const testData=JSON.parse(JSON.stringify(data))//to change to normal string
 
-test("demoproject", async({page}) =>{
-//login page
+for(const testData of data){
+test(`demoproject ${testData.myProduct}`, async({page}) =>{//concatenate the prod name-myproduct is the unique identifier
+
 //constructor
 const pom=new objectManager(page)
 const lp=await pom.getLoginPage()
@@ -11,27 +14,21 @@ const cr=await pom.getCartPage()
 const cp=await pom.getCheckoutPage()
 
 await lp.navigatePage()
-const uname="standard_user"
-const pwd="secret_sauce"
-await lp.loginUser(uname,pwd)//method
+
+await lp.loginUser(testData.uname,testData.pwd)//method
 //prod page
 
-const myProduct="Sauce Labs Backpack"
 //cart
-await pp.addProdToCart(myProduct)
+await pp.addProdToCart(testData.myProduct)
 await pp.gotoCart()
-await cr.validateprod(myProduct)
+await cr.validateprod(testData.myProduct)
 //checkout
 
-await cp.enterCheckoutDetails("anju","sree","0123")
+await cp.enterCheckoutDetails(testData.fname,testData.lname,testData.zip)
 await cp.clickContinue()
 await cp.finish()
 await cp.verify()
-
-//await page.locator("#item_4_title_link").click()
-//const shopLink=page.locator(".shopping_cart_link")
-//await shopLink.click()
-
 await page.waitForTimeout(3000)
 
 })
+}
