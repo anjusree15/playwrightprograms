@@ -21,9 +21,12 @@ export default defineConfig({
   expect: {
     timeout: 60 * 1000
   },
+  
   use: {
     headless: false,
-    trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
+    trace: 'retain-on-failure',
   },
 
   /* Configure projects for major browsers */
