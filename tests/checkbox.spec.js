@@ -1,8 +1,8 @@
 import {test,expect} from "@playwright/test"
  test.only("locators", async({page}) =>{
-await page.goto("https://selenium.qabible.in/check-box-demo.php")
+await page.goto("https://selenium.qabible.in/check-cbox-demo.php")
 const inputform=page.getByRole("link",{name:"Input Form"})
-await inputform.click()//click the input form link
+await inputform.click()//click the input form linky
 const checkboxdemo=page.getByRole("link",{name:"Checkbox Demo"})
 await checkboxdemo.click()
 const checkbox=page.getByRole("checkbox",{name:"Click on this check box"})
