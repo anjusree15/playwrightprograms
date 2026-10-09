@@ -22,7 +22,8 @@ export default defineConfig({
     timeout: 60 * 1000
   },
   
- 
+   fullyParallel:true,//to run the tests in parallel mode
+
 projects:[{
   name: 'chrome_project',
    use: {
@@ -31,9 +32,15 @@ projects:[{
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     trace: 'retain-on-failure',
+    //viewport:{width:500,height:500},
+    permissions:['geolocation','camera','microphone','notifications'],//in order to automatically allow
+    //location data
+    //geolocation:{latitude:12.9716,longitude:77.5946},//to set the location data
+    ignoreHTTPSErrors:true,//to ignore the SSL certificate errors
+  
   },
 },
-/*{
+{
   name: 'firefox_project',
    use: {
     browserName: 'firefox',
@@ -42,7 +49,7 @@ projects:[{
     video: 'retain-on-failure',
     trace: 'retain-on-failure',
   },
-},*/
+},
 {
   name: 'safari_project',
    use: {
@@ -51,6 +58,7 @@ projects:[{
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     trace: 'retain-on-failure',
+    //...devices['Desktop Safari'],
   },
 }
 ]

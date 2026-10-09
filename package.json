@@ -7,7 +7,12 @@
     "test": "npx playwright test",
     "headed": "npx playwright test --headed",
     "config": "npx playwright test --config=playwright.config1.js",
-    "chrome": "npx playwright test --config=playwright.config1.js --project=chrome_project"
+    "chrome": "npx playwright test --config=playwright.config1.js --project=chrome_project",
+    "debug": "npx playwright test --debug",
+    "safari": "npx playwright test --config=playwright.config1.js --project=safari_project",
+    "UImode":"npx playwright test --ui"
+
+
   },
   "keywords": [],
   "author": "",
