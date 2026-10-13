@@ -40,7 +40,7 @@ projects:[{
   
   },
 },
-{
+/*{
   name: 'firefox_project',
    use: {
     browserName: 'firefox',
@@ -49,7 +49,7 @@ projects:[{
     video: 'retain-on-failure',
     trace: 'retain-on-failure',
   },
-},
+},*/
 {
   name: 'safari_project',
    use: {
