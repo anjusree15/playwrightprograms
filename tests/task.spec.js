@@ -1,5 +1,5 @@
 import test from "@playwright/test"
- test.only("locators", async({page}) =>{
+ test ("locators", async({page}) =>{
     await page.goto("https://selenium.qabible.in/simple-form-demo.php")
 await page.getByPlaceholder("Message").fill("demo screen")//getByPlaceholder method
 await page.getByRole("button", { name: "Show Message" }).click()
