@@ -12,7 +12,8 @@
     "safari": "npx playwright test --config=playwright.config1.js --project=safari_project",
     "UImode": "npx playwright test --ui",
     "webandtag": "npx playwright test --grep '(?=.*@web)(?=.*@tag)'",
-    "webortag":"npx playwright test --grep '(?=.*@web)|(?=.*@tag)'"
+    "webortag":"npx playwright test --grep '(?=.*@web)|(?=.*@tag)'",
+    "web": "npx run playwright test -- grep web"
   },
   "keywords": [],
   "author": "",
