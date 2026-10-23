@@ -13,7 +13,7 @@
     "UImode": "npx playwright test --ui",
     "webandtag": "npx playwright test --grep '(?=.*@web)(?=.*@tag)'",
     "webortag":"npx playwright test --grep '(?=.*@web)|(?=.*@tag)'",
-    "web": "npx run playwright test -- grep web"
+    "web": "npx playwright test -- grep web"
   },
   "keywords": [],
   "author": "",
