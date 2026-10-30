@@ -28,4 +28,8 @@ const BookRes=await request.post("https://restful-booker.herokuapp.com/booking" 
     const postBookjson=await BookRes.json()
 expect(postBookjson.token).not.toBeNull()
 console.log(postBookjson)
+expect(postBookjson.booking.firstname).toBe(BookingData.firstname)//assertion 
+expect(postBookjson.booking.bookingdates.checkin).toBe
+(BookingData.bookingdates.checkin)//nested object
+
 })

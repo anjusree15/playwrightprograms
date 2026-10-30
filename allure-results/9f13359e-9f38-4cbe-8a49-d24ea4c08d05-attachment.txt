@@ -1,0 +1,1 @@
+Pop up message: Sign up successful.
