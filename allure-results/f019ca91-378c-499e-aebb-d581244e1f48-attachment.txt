@@ -1,0 +1,2 @@
+Pop up msg: This user already exist.
+Popup msg: User does not exist.

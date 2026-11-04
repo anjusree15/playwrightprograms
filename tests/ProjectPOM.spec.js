@@ -1,11 +1,12 @@
 import {test,expect } from '@playwright/test'
+import testData from './testData.json'
 test('DemoBlazeProject', async ({page}) => {
 await page.goto('https://www.demoblaze.com/')
 //Open Signup
 await page.locator("#signin2").click()
 // Enter username and password
-await page.fill('#sign-username', 'Spain123')
-await page.fill('#sign-password', 'lucifer')
+await page.fill('#sign-username', testData.username)
+await page.fill('#sign-password', testData.password)
 
 const dialogDisplay = page.waitForEvent('dialog');
 //Signup
