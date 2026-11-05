@@ -34,9 +34,8 @@ export default class LoginPage {
             this.loginButton.click()
         ])
 
-        const message = dialog.message()
-        await dialog.accept()
-
+        const message = dialog.message()//retrieves the message from the alert
+        await dialog.accept()//clicks the ok button on the alert
         return message
     }
 

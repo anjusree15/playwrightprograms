@@ -10,7 +10,7 @@ export default class ProductPage {
     // Select category
     await this.page.getByRole('link', {
         name: category,
-        exact: true
+        exact: true//access the exact category name and match it
     }).click()
 
     // Wait for the requested product
@@ -24,15 +24,17 @@ export default class ProductPage {
     // Select product
     await product.click()
 }
+//add selected product to cart-wait for alert to appear and click add to cart button
+
     async addToCart() {
-        const [dialog] = await Promise.all([
+        const [dialog] = await Promise.all([//both the alert & click event will be handled simultaneously
             this.page.waitForEvent('dialog'),
             this.addToCartButton.click()
         ])
-
+//retrieves the message
         const message = dialog.message()
-        await dialog.accept()
+        await dialog.accept()//clicking ok
 
-        return message
+        return message//return the msg
     }
 }

@@ -3,7 +3,7 @@ export default class CartPage {
         this.page = page
         this.cartLink = page.locator('#cartur')
         this.placeOrderButton = page.getByRole('button', { name: 'Place Order' })
-
+//cust info fields
         this.name = page.locator('#name')
         this.country = page.locator('#country')
         this.city = page.locator('#city')
@@ -11,13 +11,14 @@ export default class CartPage {
         this.month = page.locator('#month')
         this.year = page.locator('#year')
 
-        this.purchaseButton = page.getByRole('button', { name: 'Purchase' })
+        this.purchaseButton = page.getByRole('button', { name: 'Purchase' })//purchasebutton
     }
+//open shopping cart 
 
     async openCart() {
         await this.cartLink.click()
     }
-
+//complete purchase by filling the form and clicking purchase button
     async purchase(name, country, city, card, month, year) {
         await this.placeOrderButton.click()
 

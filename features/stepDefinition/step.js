@@ -1,25 +1,55 @@
-import { Given, When, Then } from '@cucumber/cucumber';
-import {setdefaultTimeout} from '@cucumber/cucumber';
-setdefaultTimeout(60 * 1000);
-Given('Enter {string} and {string}', function (username, password) {
-  
- 
-});
-When('add {string} to the cart', function (string) {
- 
+import { Given, When, Then, After } from '@cucumber/cucumber';
+import { chromium } from '@playwright/test';
+import { objectManager } from '../../pages/objectManager.js';
+import {setDefaultTimeout} from "@cucumber/cucumber"
+setDefaultTimeout(60 * 1000);
+Given('Enter username and password {string} & {string}', async function (uname, pwd) {
+
+    const browser = await chromium.launch({ headless: false });
+    const context = await browser.newContext();
+
+    this.page = await context.newPage();
+    this.browser = browser;
+
+    this.pom = new objectManager(this.page);
+
+    const lp = await this.pom.getLoginPage();
+
+    await lp.navigatePage();
+    await lp.loginUser(uname, pwd);
 });
 
-Then('verify {string} is add to the cart', function (string) {
-  // Write code here that turns the phrase above into concrete actions
-  return 'pending';
+When('add {string} to the cart', async function (productname) {
+
+    const pp = await this.pom.getProductPage();
+
+    await pp.addProdToCart(productname);
+    await pp.gotoCart();
 });
 
-When('valid {string},{string},{string} added', function (string, string2, string3) {
-  // Write code here that turns the phrase above into concrete actions
-  return 'pending';
+Then('verify {string} is add to the cart', async function (myProduct) {
+
+    const cp = await this.pom.getCartPage();
+
+    await cp.validateprod(myProduct);
 });
 
-Then('checked order confirmation', function () {
-  // Write code here that turns the phrase above into concrete actions
-  return 'pending';
+When('valid {string} {string} {string} added', async function (checkFirstname, checkLastName, checkZip) {
+
+    const cp = await this.pom.getCheckoutPage();
+
+    await cp.enterCheckoutDetails(checkFirstname, checkLastName, checkZip);
+    await cp.clickContinue();
+    await cp.finish();
+});
+
+Then('checked order confirmation', async function () {
+
+    const cp = await this.pom.getCheckoutPage();
+
+    await cp.verifyOrderConfirmation();
+});
+
+After(async function () {
+    await this.browser?.close();
 });

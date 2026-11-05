@@ -1,7 +1,7 @@
-import { LoginPage } from "../pages/LoginPage"
-import { ProductPage } from "../pages/ProductPage"
-import { CheckoutPage} from "../pages/CheckoutPage"
-import { CartPage} from "../pages/CartPage"
+import { LoginPage } from "../pages/LoginPage.js"
+import { ProductPage } from "../pages/ProductPage.js"
+import { CheckoutPage} from "../pages/CheckoutPage.js"
+import { CartPage} from "../pages/CartPage.js"
 export class objectManager{
 
     constructor(page){

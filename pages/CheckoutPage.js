@@ -25,12 +25,13 @@ export class CheckoutPage{
         await expect(this.page).toHaveURL("https://www.saucedemo.com/checkout-step-two.html")
     await this.finishBtn.click() 
     }
-    async verify()
-        {
-        await expect(this.page).toHaveURL("https://www.saucedemo.com/checkout-complete.html")
-        await expect(this.OrderConfirm).toBeVisible()
-        }
-       
+    async verifyOrderConfirmation() {
+    await expect(this.page).toHaveURL(
+        "https://www.saucedemo.com/checkout-complete.html"
+    )
+
+    await expect(this.OrderConfirm).toBeVisible();
+}
     }
         
 
